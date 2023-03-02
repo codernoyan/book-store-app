@@ -14,7 +14,7 @@
       "author": "Laura Dave",
       "thumbnail": "https://m.media-amazon.com/images/P/1501171348.01._SCLZZZZZZZ_SX500_.jpg",
       "price": 13.99,
-      "rating": 4,
+      "rating": 2,
       "featured": false,
       "id": 2
     },
@@ -44,6 +44,15 @@
       "rating": 4,
       "featured": true,
       "id": 5
+    },
+    {
+      "name": "Programming",
+      "author": "freeCodeCamp",
+      "thumbnail": "https://cdn-media-1.freecodecamp.org/images/1*Ikt9LNJUhCX7QxbjnwKstA.png",
+      "price": 4000,
+      "rating": 5,
+      "featured": true,
+      "id": 6
     }
   ]
 }
