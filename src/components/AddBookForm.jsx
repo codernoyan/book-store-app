@@ -1,6 +1,9 @@
 import { useState } from "react"
+import { useDispatch } from "react-redux";
+import addBookToDB from "../redux/Books/thunk/addBookToDB";
 
 export default function AddBookForm() {
+  const dispatch = useDispatch();
   // initial form state
   const [input, setInput] = useState({
     bookName: '',
@@ -15,6 +18,8 @@ export default function AddBookForm() {
   const handleAddBook = (e) => {
     e.preventDefault();
     console.log(input);
+
+    dispatch(addBookToDB(input));
 
     // form reset
     setInput({
