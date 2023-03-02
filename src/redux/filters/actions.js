@@ -1,4 +1,4 @@
-import { STATUSCHANGE } from "./actionTypes"
+import { STATUSCHANGE, SEARCHBOOK } from "./actionTypes"
 
 export const statusChange = (status) => {
   return {
@@ -6,3 +6,11 @@ export const statusChange = (status) => {
     payload: status,
   }
 }
+
+
+export const searchBook = (bookName) => {
+  return {
+    type: SEARCHBOOK,
+    payload: bookName,
+  }
+};

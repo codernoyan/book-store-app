@@ -1,5 +1,6 @@
 const initialState = {
-  status: 'All'
+  status: 'All',
+  bookName: '',
 };
 
 export default initialState;

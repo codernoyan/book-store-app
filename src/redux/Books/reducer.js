@@ -1,5 +1,5 @@
 import initialState from "./initialState";
-import { LOADBOOK, ADDBOOK, DELETEBOOK, EDITBOOK, SEARCHBOOK, UPDATEBOOK } from "./actionTypes";
+import { LOADBOOK, ADDBOOK, DELETEBOOK, EDITBOOK } from "./actionTypes";
 
 // generate id
 const generateId = (books) => {
@@ -27,26 +27,6 @@ const reducer = (state = initialState, action) => {
 
     case DELETEBOOK:
       return state.filter((book) => book.id !== action.payload);
-
-    case UPDATEBOOK:
-      return state.map((book) => {
-        if (book.id === action.payload) {
-          return {
-            ...book,
-            ...action.payload
-          }
-        }
-      });
-
-    case SEARCHBOOK:
-      return state.filter((book) => {
-        switch (book.name) {
-          case action.payload:
-            return book;
-          default:
-            return true;
-        }
-      })
 
     case EDITBOOK:
       const { name, price, author, featured, rating, thumbnail } = action.payload.editFormData;

@@ -35,7 +35,21 @@ export default function BooksContainer() {
       default:
         return true;
     }
+  };
+
+  console.log(filters.bookName)
+
+  const filterByName = (book) => {
+    const { bookName } = filters;
+    if (book.name.toLowerCase().indexOf(bookName.toLowerCase()) === 0) {
+      return true;
+    } else if (bookName === '') {
+      return true;
+    }
+    return false;
   }
+
+
 
   const handleFeaturedStatus = (status) => {
     dispatch(statusChange(status))
@@ -65,6 +79,7 @@ export default function BooksContainer() {
             {
               bookData
                 .filter(filteredByStatus)
+                .filter(filterByName)
                 .map((book) => <BookCard key={book.id} book={book} handleEditBook={handleEditBook} />)
             }
 

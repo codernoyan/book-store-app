@@ -1,4 +1,4 @@
-import { STATUSCHANGE } from "./actionTypes";
+import { SEARCHBOOK, STATUSCHANGE } from "./actionTypes";
 import initialState from "./initialState"
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -7,7 +7,11 @@ const reducer = (state = initialState, action) => {
         ...state,
         status: action.payload
       }
-    
+    case SEARCHBOOK:
+      return {
+        ...state,
+        bookName: action.payload
+      }
     default:
       return state;
   }

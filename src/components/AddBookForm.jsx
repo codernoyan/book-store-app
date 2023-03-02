@@ -37,7 +37,7 @@ export default function AddBookForm({ formToggle, editFormData, setFormToggle, s
   const handleEditForm = (e) => {
     e.preventDefault();
     console.log(editFormData);
-    
+
     // edit book
     dispatch(editBook(editFormData.id, editFormData))
     // form reset
@@ -49,9 +49,8 @@ export default function AddBookForm({ formToggle, editFormData, setFormToggle, s
       rating: '',
       featured: false,
     })
+    setFormToggle(false);
   };
-
-  
 
   return (
     <div className="p-4 overflow-hidden bg-white shadow-cardShadow rounded-md">
@@ -89,7 +88,8 @@ export default function AddBookForm({ formToggle, editFormData, setFormToggle, s
             <label htmlFor="price">Price</label>
             {
               formToggle ?
-                <input onChange={(e) => setFormToggle({ ...editFormData, price: parseInt(e.target.value) })} required className="text-input" type="number" id="input-Bookprice" name="price" value={editFormData.price} />
+                <input onChange={(e) => setEditFormData({ ...editFormData, price: parseInt(e.target.value) })} required className="text-input" type="number" id="input-Bookprice" name="price"
+                  value={editFormData.price} />
                 :
                 <input onChange={(e) => setInput({ ...input, price: parseInt(e.target.value) })} required className="text-input" type="number" id="input-Bookprice" name="price" value={input.price} />
             }

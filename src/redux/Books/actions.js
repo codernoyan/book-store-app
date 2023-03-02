@@ -1,4 +1,4 @@
-import { LOADBOOK, ADDBOOK, DELETEBOOK, EDITBOOK, SEARCHBOOK, UPDATEBOOK } from "./actionTypes";
+import { LOADBOOK, ADDBOOK, DELETEBOOK, EDITBOOK } from "./actionTypes";
 
 // action creators
 
@@ -30,19 +30,5 @@ export const editBook = (bookId, editFormData) => {
       bookId,
       editFormData
     }
-  }
-};
-
-export const searchBook = (bookName) => {
-  return {
-    type: SEARCHBOOK,
-    payload: bookName,
-  }
-};
-
-export const updateBook = (bookId) => {
-  return {
-    type: UPDATEBOOK,
-    payload: bookId
   }
 };
