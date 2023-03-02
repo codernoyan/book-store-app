@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useDispatch } from "react-redux";
-import { addBook } from "../redux/Books/actions";
+import { addBook, editBook } from "../redux/Books/actions";
 
 export default function AddBookForm({ formToggle, editFormData, setFormToggle, setEditFormData }) {
   const dispatch = useDispatch();
@@ -20,7 +20,7 @@ export default function AddBookForm({ formToggle, editFormData, setFormToggle, s
     console.log(input);
 
     dispatch(addBook(input));
-    
+
     // form reset
     setInput({
       name: '',
@@ -33,10 +33,13 @@ export default function AddBookForm({ formToggle, editFormData, setFormToggle, s
   }
   console.log(formToggle, editFormData);
 
+  // edit book form
   const handleEditForm = (e) => {
     e.preventDefault();
     console.log(editFormData);
-
+    
+    // edit book
+    dispatch(editBook(editFormData.id, editFormData))
     // form reset
     setEditFormData({
       name: '',
@@ -46,7 +49,9 @@ export default function AddBookForm({ formToggle, editFormData, setFormToggle, s
       rating: '',
       featured: false,
     })
-  }
+  };
+
+  
 
   return (
     <div className="p-4 overflow-hidden bg-white shadow-cardShadow rounded-md">

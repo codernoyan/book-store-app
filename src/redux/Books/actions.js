@@ -23,10 +23,13 @@ export const deleteBook = (bookId) => {
   }
 };
 
-export const editBook = (bookId) => {
+export const editBook = (bookId, editFormData) => {
   return {
     type: EDITBOOK,
-    payload: bookId
+    payload: {
+      bookId,
+      editFormData
+    }
   }
 };
 

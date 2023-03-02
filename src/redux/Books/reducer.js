@@ -49,7 +49,21 @@ const reducer = (state = initialState, action) => {
       })
 
     case EDITBOOK:
-      return state.find((book) => book.id === action.payload);
+      const { name, price, author, featured, rating, thumbnail } = action.payload.editFormData;
+      return state.map((book) => {
+        if (book.id !== action.payload.bookId) {
+          return book;
+        }
+        return {
+          ...book,
+          name: name,
+          price: price,
+          author: author,
+          featured: featured,
+          rating: rating,
+          thumbnail: thumbnail,
+        }
+      })
     default:
       return state;
   }
