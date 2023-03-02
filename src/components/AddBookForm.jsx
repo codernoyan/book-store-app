@@ -6,12 +6,12 @@ export default function AddBookForm() {
   const dispatch = useDispatch();
   // initial form state
   const [input, setInput] = useState({
-    bookName: '',
+    name: '',
     author: '',
-    imageUrl: '',
+    thumbnail: '',
     price: '',
     rating: '',
-    isFeatured: false,
+    featured: false,
   });
 
   // handle input form
@@ -23,12 +23,12 @@ export default function AddBookForm() {
 
     // form reset
     setInput({
-      bookName: '',
+      name: '',
       author: '',
-      imageUrl: '',
+      thumbnail: '',
       price: '',
       rating: '',
-      isFeatured: false,
+      featured: false,
     })
   }
 
@@ -38,7 +38,7 @@ export default function AddBookForm() {
       <form onSubmit={handleAddBook} className="book-form">
         <div className="space-y-2">
           <label htmlFor="name">Book Name</label>
-          <input onChange={(e) => setInput({ ...input, bookName: e.target.value })} required className="text-input" type="text" id="input-Bookname" name="name" value={input.bookName} />
+          <input onChange={(e) => setInput({ ...input, name: e.target.value })} required className="text-input" type="text" id="input-Bookname" name="name" value={input.name} />
         </div>
         <div className="space-y-2">
           <label htmlFor="category">Author</label>
@@ -46,7 +46,7 @@ export default function AddBookForm() {
         </div>
         <div className="space-y-2">
           <label htmlFor="image">Image Url</label>
-          <input onChange={(e) => setInput({ ...input, imageUrl: e.target.value })} required className="text-input" type="text" id="input-Bookthumbnail" name="thumbnail" value={input.imageUrl} />
+          <input onChange={(e) => setInput({ ...input, thumbnail: e.target.value })} required className="text-input" type="text" id="input-Bookthumbnail" name="thumbnail" value={input.thumbnail} />
         </div>
         <div className="grid grid-cols-2 gap-8 pb-4">
           <div className="space-y-2">
@@ -59,7 +59,7 @@ export default function AddBookForm() {
           </div>
         </div>
         <div className="flex items-center">
-          <input onChange={(e) => setInput({ ...input, isFeatured: e.target.checked })} id="input-Bookfeatured" type="checkbox" name="featured" className="w-4 h-4" value={input.isFeatured} checked={input.isFeatured === true && true} />
+          <input onChange={(e) => setInput({ ...input, featured: e.target.checked })} id="input-Bookfeatured" type="checkbox" name="featured" className="w-4 h-4" value={input.featured} checked={input.featured === true && true} />
           <label htmlFor="featured" className="ml-2 text-sm"> This is a featured book </label>
         </div>
         <button type="submit" className="submit" id="submit">Add Book</button>

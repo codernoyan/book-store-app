@@ -5,16 +5,18 @@ import BookCard from "./BookCard";
 
 export default function AllBooks() {
   const dispatch = useDispatch();
-  const bookdata = useSelector((state) => state);
-  console.log(bookdata);
+  const bookData = useSelector((state) => state);
+  console.log(bookData);
   // middleware data fetch with thunk
   useEffect(() => {
     dispatch(fetchBooks);
   }, [dispatch])
 
   return (
-    <div>
-      <BookCard />
-    </div>
+    <>
+      {
+        bookData.map((book) => <BookCard key={book.id} book={book} />)
+      }
+    </>
   )
 }
