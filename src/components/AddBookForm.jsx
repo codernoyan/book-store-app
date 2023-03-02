@@ -1,6 +1,8 @@
 import { useState } from "react"
 import { useDispatch } from "react-redux";
 import { addBook, editBook } from "../redux/Books/actions";
+import addBookToDB from "../redux/Books/thunk/addBookToDB";
+import updateBookToDB from "../redux/Books/thunk/updateBookToDB";
 
 export default function AddBookForm({ formToggle, editFormData, setFormToggle, setEditFormData }) {
   const dispatch = useDispatch();
@@ -19,7 +21,7 @@ export default function AddBookForm({ formToggle, editFormData, setFormToggle, s
     e.preventDefault();
     console.log(input);
 
-    dispatch(addBook(input));
+    dispatch(addBookToDB(input));
 
     // form reset
     setInput({
@@ -39,7 +41,7 @@ export default function AddBookForm({ formToggle, editFormData, setFormToggle, s
     console.log(editFormData);
 
     // edit book
-    dispatch(editBook(editFormData.id, editFormData))
+    dispatch(updateBookToDB(editFormData.id, editFormData))
     // form reset
     setEditFormData({
       name: '',

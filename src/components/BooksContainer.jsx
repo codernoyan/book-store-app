@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import fetchBooks from "../redux/Books/thunk/fetchBooks";
 import { statusChange } from "../redux/filters/actions";
 import AddBookForm from "./AddBookForm";
 import BookCard from "./BookCard";
@@ -36,6 +37,10 @@ export default function BooksContainer() {
         return true;
     }
   };
+
+  useEffect(() => {
+    dispatch(fetchBooks);
+  }, [dispatch])
 
   console.log(filters.bookName)
 

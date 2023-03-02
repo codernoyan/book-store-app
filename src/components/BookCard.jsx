@@ -1,12 +1,13 @@
 import { useDispatch } from "react-redux";
 import { deleteBook, editBook } from "../redux/Books/actions";
+import deleteBookFromDB from "../redux/Books/thunk/deleteBookFromDB";
 
 export default function BookCard({ book, handleEditBook }) {
   const { id, name, author, featured, price, rating, thumbnail } = book;
   const dispatch = useDispatch();
 
   const handleDeleteBook = (bookId) => {
-    dispatch(deleteBook(bookId));
+    dispatch(deleteBookFromDB(bookId));
   };
 
   return (

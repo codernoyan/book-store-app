@@ -1,4 +1,4 @@
-import { updateBook } from "../actions";
+import { editBook } from "../actions";
 
 const updateBookToDB = (bookId, bookData) => {
   return async (dispatch) => {
@@ -11,7 +11,7 @@ const updateBookToDB = (bookId, bookData) => {
     });
     const book = await response.json();
 
-    dispatch(updateBook(book));
+    dispatch(editBook(book.id, book));
   }
 }
 
