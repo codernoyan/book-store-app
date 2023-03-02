@@ -11,7 +11,7 @@ const addBookToDB = (bookData) => {
     });
     const book = await response.json();
 
-    dispatch(addBook(book))
+    dispatch(addBook(book));
   }
 }
 

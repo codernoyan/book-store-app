@@ -5,7 +5,7 @@ import BookCard from "./BookCard";
 
 export default function AllBooks() {
   const dispatch = useDispatch();
-  const bookData = useSelector((state) => state);
+  const bookData = useSelector((state) => state.books);
   console.log(bookData);
   // middleware data fetch with thunk
   useEffect(() => {

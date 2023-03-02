@@ -30,10 +30,10 @@ export const editBook = (bookId) => {
   }
 };
 
-export const searchBook = (bookId) => {
+export const searchBook = (bookName) => {
   return {
     type: SEARCHBOOK,
-    payload: bookId,
+    payload: bookName,
   }
 };
 

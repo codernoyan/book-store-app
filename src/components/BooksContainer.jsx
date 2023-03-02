@@ -1,7 +1,28 @@
+import { useDispatch, useSelector } from "react-redux";
 import AddBookForm from "./AddBookForm";
 import AllBooks from "./AllBooks";
 
 export default function BooksContainer() {
+
+  const bookData = useSelector((state) => state.books);
+  const dispatch = useDispatch();
+
+  // const filterByFeatured = (bookData) => {
+  //   const { featured } = state;
+  //   switch (featured) {
+  //     case true:
+  //       return bookData.featured;
+  //     case false:
+  //       return !bookData.featured;
+  //     default:
+  //       return true;
+  //   }
+  // };
+
+  // const handleFeaturedStatus = (status) => {
+  //   dispatch(featuredStatus(status))
+  // }
+  
   return (
     <main className="py-12 2xl:px-6">
       <div className="container grid xl:grid-cols-[auto_350px] 2xl:grid-cols-[auto_400px] gap-4 2xl:gap-8">
