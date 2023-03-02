@@ -36,8 +36,8 @@ export default function BooksContainer() {
           <div className="flex items-center justify-between mb-12">
             <h4 className="mt-2 text-xl font-bold">Book List</h4>
             <div className="flex items-center space-x-4">
-              <button onClick={() => handleFeaturedStatus('All')} className="filter-btn active-filter" id="lws-filterAll">All</button>
-              <button onClick={() => handleFeaturedStatus('Featured')} className="filter-btn" id="lws-filterFeatured">Featured</button>
+              <button onClick={() => handleFeaturedStatus('All')} className={`filter-btn ${filters.status === 'All' && 'active-filter'}`} id="lws-filterAll">All</button>
+              <button onClick={() => handleFeaturedStatus('Featured')} className={`filter-btn ${filters.status === 'Featured' && 'active-filter'}`} id="lws-filterFeatured">Featured</button>
             </div>
           </div>
           {/* Alll Books */}
