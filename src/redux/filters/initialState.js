@@ -1,5 +1,5 @@
 const initialState = {
-  status: 'all'
+  status: 'All'
 };
 
 export default initialState;

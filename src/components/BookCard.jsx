@@ -5,7 +5,12 @@ export default function BookCard({ book }) {
       <img className="h-[240px] w-[170px] object-cover lws-bookThumbnail" src={thumbnail} alt="book" />
       <div className="flex-1 h-full pr-2 pt-2 flex flex-col">
         <div className="flex items-center justify-between">
-          <span className="badge-success lws-Badge">featured</span>
+          {
+            featured ?
+              <span className="badge-success lws-Badge">featured</span>
+              :
+              <span></span>
+          }
           <div className="text-gray-500 space-x-2">
             <button className="lws-edit">
               <svg fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">

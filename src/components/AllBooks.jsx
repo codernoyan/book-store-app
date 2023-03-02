@@ -8,9 +8,9 @@ export default function AllBooks() {
   const bookData = useSelector((state) => state.books);
   console.log(bookData);
   // middleware data fetch with thunk
-  useEffect(() => {
-    dispatch(fetchBooks);
-  }, [dispatch])
+  // useEffect(() => {
+  //   dispatch(fetchBooks);
+  // }, [dispatch])
 
   return (
     <>
