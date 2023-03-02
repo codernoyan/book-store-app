@@ -1,9 +1,21 @@
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { statusChange } from "../redux/filters/actions";
 import AddBookForm from "./AddBookForm";
 import BookCard from "./BookCard";
 
 export default function BooksContainer() {
+  const [formToggle, setFormToggle] = useState(false)
+  const [editFormData, setEditFormData] = useState(
+    {
+      name: '',
+      author: '',
+      thumbnail: '',
+      price: '',
+      rating: '',
+      featured: false,
+    }
+  );
 
   const bookData = useSelector((state) => state.books);
   const filters = useSelector((state) => state.filters);
@@ -27,6 +39,13 @@ export default function BooksContainer() {
 
   const handleFeaturedStatus = (status) => {
     dispatch(statusChange(status))
+  };
+
+  const handleEditBook = (id) => {
+    const editBook = bookData.find((book) => book.id === id);
+    console.log(editBook);
+    setFormToggle(true);
+    setEditFormData(editBook);
   }
 
   return (
@@ -46,7 +65,7 @@ export default function BooksContainer() {
             {
               bookData
                 .filter(filteredByStatus)
-                .map((book) => <BookCard key={book.id} book={book} />)
+                .map((book) => <BookCard key={book.id} book={book} handleEditBook={handleEditBook} />)
             }
 
           </div>
@@ -57,7 +76,12 @@ export default function BooksContainer() {
           </div> */}
         </div>
         <div>
-          <AddBookForm />
+          <AddBookForm
+            formToggle={formToggle}
+            editFormData={editFormData}
+            setFormToggle={setFormToggle}
+            setEditFormData={setEditFormData}
+          />
         </div>
       </div>
     </main>

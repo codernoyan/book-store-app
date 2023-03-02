@@ -47,6 +47,9 @@ const reducer = (state = initialState, action) => {
             return true;
         }
       })
+
+    case EDITBOOK:
+      return state.find((book) => book.id === action.payload);
     default:
       return state;
   }
