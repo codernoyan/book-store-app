@@ -1,7 +1,5 @@
 import AddBookForm from "./AddBookForm";
 import AllBooks from "./AllBooks";
-import BookCard from "./BookCard";
-import FeaturedBooks from "./FeaturedBooks";
 
 export default function BooksContainer() {
   return (
