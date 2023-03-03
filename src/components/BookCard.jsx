@@ -1,5 +1,4 @@
 import { useDispatch } from "react-redux";
-import { deleteBook, editBook } from "../redux/Books/actions";
 import deleteBookFromDB from "../redux/Books/thunk/deleteBookFromDB";
 
 export default function BookCard({ book, handleEditBook }) {

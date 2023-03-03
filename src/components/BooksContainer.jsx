@@ -6,7 +6,9 @@ import AddBookForm from "./AddBookForm";
 import BookCard from "./BookCard";
 
 export default function BooksContainer() {
+  // state for form toggle to edit data
   const [formToggle, setFormToggle] = useState(false)
+  // edit form data
   const [editFormData, setEditFormData] = useState(
     {
       name: '',
@@ -22,12 +24,9 @@ export default function BooksContainer() {
   const filters = useSelector((state) => state.filters);
   const dispatch = useDispatch();
 
+  // filter data for toggle feature or all data
   const filteredByStatus = (book) => {
     const { status } = filters;
-    // if (status === 'All') {
-    //   return true;
-    // }
-    // return book.featured;
     switch (status) {
       case 'Featured':
         return book.featured;
@@ -38,12 +37,12 @@ export default function BooksContainer() {
     }
   };
 
+  // default fetch for get data from server
   useEffect(() => {
     dispatch(fetchBooks);
   }, [dispatch])
 
-  console.log(filters.bookName)
-
+  // filter by name
   const filterByName = (book) => {
     const { bookName } = filters;
     if (book.name.toLowerCase().indexOf(bookName.toLowerCase()) === 0) {
@@ -54,12 +53,12 @@ export default function BooksContainer() {
     return false;
   }
 
-
-
+  // toggle feature by all and featured
   const handleFeaturedStatus = (status) => {
     dispatch(statusChange(status))
   };
 
+  // click to edit book book
   const handleEditBook = (id) => {
     const editBook = bookData.find((book) => book.id === id);
     console.log(editBook);
@@ -78,7 +77,6 @@ export default function BooksContainer() {
               <button onClick={() => handleFeaturedStatus('Featured')} className={`filter-btn ${filters.status === 'Featured' && 'active-filter'}`} id="lws-filterFeatured">Featured</button>
             </div>
           </div>
-          {/* Alll Books */}
           <div className="lws-bookContainer">
             {/* <AllBooks /> */}
             {
@@ -87,13 +85,7 @@ export default function BooksContainer() {
                 .filter(filterByName)
                 .map((book) => <BookCard key={book.id} book={book} handleEditBook={handleEditBook} />)
             }
-
           </div>
-
-          {/* Featured Books */}
-          {/* <div className="lws-bookContainer">
-            <FeaturedBooks />
-          </div> */}
         </div>
         <div>
           <AddBookForm
