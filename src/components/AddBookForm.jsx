@@ -102,7 +102,8 @@ export default function AddBookForm({ formToggle, editFormData, setFormToggle, s
               formToggle ?
                 <input onChange={(e) => setEditFormData({ ...editFormData, rating: parseInt(e.target.value) })} required className="text-input" type="number" id="input-Bookrating" name="rating" min={1} max={5} value={editFormData.rating} />
                 :
-                <input onChange={(e) => setInput({ ...input, rating: parseInt(e.target.value) })} required className="text-input" type="number" id="input-Bookrating" name="rating" min={1} max={5} value={input.rating} />
+                <input onChange={(e) => setInput({ ...input, rating: parseInt(e.target.value) })} required className="text-input" type="number" id="input-Bookrating" name="rating" min={1} max={5}
+                  value={input.rating} />
             }
           </div>
         </div>

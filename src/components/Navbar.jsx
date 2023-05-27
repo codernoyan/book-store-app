@@ -8,8 +8,8 @@ export default function Navbar() {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    setSearch(e.target.value)
-    dispatch(searchBook(e.target.value))
+    setSearch(e.target.value);
+    dispatch(searchBook(e.target.value));
   }
 
   return (
